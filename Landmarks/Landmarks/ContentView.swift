@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var landmarkData = LandmarkData()
+    
     var body: some View {
         NavigationView {
-            List(landmarks) { landmark in
+            List(landmarkData.landmarks) { landmark in
                 LandmarkCellView(landmark: landmark)
             }
+            .scrollIndicators(.hidden)
             .navigationTitle("Landmarks")
         }
         
