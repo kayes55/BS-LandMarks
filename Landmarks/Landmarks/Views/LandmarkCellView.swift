@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct LandmarkCellView: View {
+    var landmark: Landmark
     var body: some View {
         HStack(spacing: 10) {
-            Image("lakemcdonald")
+            landmark.image
                 .resizable()
                 .frame(width: 70, height: 70)
+                .cornerRadius(8)
             VStack(alignment: .leading, spacing: 0) {
-                Text("Title")
+                Text(landmark.name)
                     .font(.title2)
-                Text("Subtitle")
+                Text(landmark.subtitle)
                     .font(.subheadline)
             }
             
@@ -24,6 +26,3 @@ struct LandmarkCellView: View {
     }
 }
 
-#Preview {
-    LandmarkCellView()
-}
